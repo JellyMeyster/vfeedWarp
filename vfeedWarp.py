@@ -6,13 +6,11 @@ def processInput(userinput):
         
     
 # Takes cpe and gives CVEs - Product to Vulnerability 
-def search_for_cve_by_cve(cpe):
+def search_for_cve_by_cpe(cpe):
     # Call data cleanse
     cves = []
         
     for x in cve_cpe.select().join(nvd_db)   .where(cve_cpe.cpeid == cpe):
-
-        print x.cveid_id
         cves.append(x.cveid_id)
     return cves
             
@@ -23,7 +21,6 @@ def search_for_cpe_by_cve(cve):
     cves = cve
     
     for x in cve_cpe.select(cve_cpe.cpeid).join(nvd_db).where(nvd_db.cveid == cve):
-        print x.cpeid
         cpes.append(x.cpeid)
     return cpes
 
@@ -34,8 +31,7 @@ def search_for_cwe_by_cve(cve):
     cves = []
     cwes = []
 
-    for x in cve_cwe.select(cve_cwe.cweid).join(nvd_db).where(nvd_db.cveid ==cve):  
-        print x.cweid
+    for x in cve_cwe.select(cve_cwe.cweid).join(nvd_db).where(nvd_db.cveid ==cve):
         cwes.append(x.cweid)
     return(cwes)
 
@@ -47,8 +43,6 @@ def search_for_exploit_by_cve(cve):
     expid = []
     
     for x in map_cve_exploitdb.select(map_cve_exploitdb.exploitdbid).join(nvd_db).where(nvd_db.cveid == cve):
-        
-        print x.exploitdbid
         expid.append(x.exploitdbid)
     return expid
         
