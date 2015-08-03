@@ -7,8 +7,8 @@ vfeed Model and search interface
 
 ## What's in this version?
 1. vfeedWarp takes input and fetches the following
-    a. Throw CPE to get CVE
-    b. Throw CVE and get CWE or exploitDB id
+    *(a) Throw CPE to get CVE
+    *(b) Throw CVE and get CWE or exploitDB id
 
 2. Asking for CWE or exploitDB id is pretty simple. All a user does is alter 
 the variables being passed into vfeedWarp. For more details checkout the usage section below.
