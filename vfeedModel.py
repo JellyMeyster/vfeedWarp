@@ -1,8 +1,12 @@
 from peewee import *
 from playhouse.sqlite_ext import *
 from playhouse.sqlite_ext import SqliteExtDatabase
+import os
 
-db = SqliteExtDatabase('vfeed/vfeed.db', threadlocals=True)
+basedir = os.path.abspath(os.path.dirname(__file__))
+database = os.path.join(basedir,'vfeed/vfeed.db')
+db = SqliteDatabase(database)
+
 
 class nvd_db(Model):
     cveid = TextField(primary_key=True)
