@@ -74,7 +74,14 @@ All return values are list
 
 
 ## Getting help
+To understand the search function, type help(search) in repr
+```
+>>> from vfeedWarp import search
+>>> help(search)
+```
 
 ## Contributing
+Anyone is free to contribute. Checke the LICENSE file if you are making a fork.
+
 
 
